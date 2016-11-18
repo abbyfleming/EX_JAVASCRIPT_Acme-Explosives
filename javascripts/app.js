@@ -46,28 +46,38 @@ function checkData(data){
 	console.log("checkData", data); 
 }
 
+function readProducts(productsData){	
+	//console.log(productsData.fairy_sparklers.name);
+	//^output's the name from charred_stump
+	
+	//grab the name of each product
+	var productKeys = Object.keys(productsData);
+	console.log("Product's Keys: ", productKeys);
 
-function readCategory(categoryData){
-	for (var i = 0; i < categoryData.length; i++){
-		console.log(categoryData[i].name);
-		console.log(categoryData[i].id);
+	//How many products are there? And what's their key?
+	for (var i = 0; i < productKeys.length; i++){
+
+		var getInfo = productKeys[i];
+
+		//use bracket notation to filter down into the data
+		var productName = productsData[getInfo]["name"];
+		var productDescription = productsData[getInfo]["description"];
+
+		//output the data. yay.
+		console.log(productName + " " + productDescription);
 	}
 }
 
-function readProducts(productsData){
-	for (var i = 0; i < productsData.length; i++){
-		console.log(productsData[i]);
-	}
-}
 
 getCategories()
 	.then((categoryData) =>{
 		//console.log(categoryData.categories);
-		readCategory(categoryData.categories);
+		//readCategory(categoryData.categories);
 		return getProducts(); 
 	})
 	.then((productsData) => {
-		readProducts(productsData.products);
+		readProducts(productsData.products[0]);
+		//console.log("productsData", productsData);
 		return getTypes();
 	// })
 	// .then((typesData) => {
