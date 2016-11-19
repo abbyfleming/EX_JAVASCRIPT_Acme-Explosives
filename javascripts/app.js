@@ -51,6 +51,7 @@ function checkData(data){
 getCategories()
 	.then((categoryData) =>{
 		readCategories(categoryData.categories);
+		dynamicDropdown(categoryData.categories);
 		return getProducts(); 
 	})
 	.then((productsData) => {
