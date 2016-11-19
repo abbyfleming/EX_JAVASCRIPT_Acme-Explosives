@@ -23,7 +23,12 @@
       "typeId": 2,
       "name": "The Charred Stump",
       "description": "Extremely short fuse and enough gunpowder to launch a cannonball"
+    },
+    "bom_pow": {
+      "id": 3,
+      "typeId": 2,
+      "name": "Boom Pow",
+      "description": "Super sizzly. Super loud. Nothing else compares."
     }
-
   }]
 }
